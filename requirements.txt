@@ -1,0 +1,2 @@
+EasyGoogleTranslate==0.0.4
+SeleniumBase==4.25.2
