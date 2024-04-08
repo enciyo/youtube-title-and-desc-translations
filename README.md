@@ -8,6 +8,7 @@ This project is about translating YouTube video titles and descriptions.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Support](#support)
 
 ## Aim
 
@@ -45,8 +46,5 @@ To use this project, follow these steps:
 
 For performance operations and errors, please open an issue and describe it in detail.
 
-
-
-
-
-
+## Support
+If you find this project helpful and want to support, you can subscribe to my YouTube channel [here](https://www.youtube.com/@Voicepa).
