@@ -21,6 +21,7 @@ class AddLanguage:
         """
         if sb.is_element_visible(self.list_path):
             lang = sb.get_text(f"{self.list_path} > {self.text_path}")
+            sb.scroll_to(self.list_path)
             sb.click(self.list_path)
             return {
                 "status": True,

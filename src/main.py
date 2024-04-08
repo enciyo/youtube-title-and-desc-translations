@@ -52,6 +52,7 @@ def main():
                     print(f"No more languages to add for this video ({index}). Moving to the next video.")
                     break
             print(f"Completed adding translations for video {index}")
+            sb.go_back()
 
         sb.wait(5)
 
