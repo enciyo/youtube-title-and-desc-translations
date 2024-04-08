@@ -2,6 +2,7 @@ from translate import translate_youtube_title_and_desc
 from countries import get_country_code
 from selenium.webdriver.common.keys import Keys
 
+
 class TranslateTitleAndDesc:
     """
     A class that represents the use case for translating YouTube video title and description.
@@ -43,8 +44,9 @@ class TranslateTitleAndDesc:
         })
         sb.type(self.translated_title_path, video["title"])
         sb.type(self.translated_desc_path, video["description"])
+        editor = sb.find_element(self.metadata_editor_path)
         sb.click(self.publish_button_path)
-        sb.execute_script("arguments[0].remove();", sb.find_element(self.metadata_editor_path))
+        sb.execute_script("arguments[0].remove();",editor)
 
 
 
