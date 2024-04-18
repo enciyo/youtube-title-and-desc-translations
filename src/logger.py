@@ -11,6 +11,13 @@ def take_screen_shot(sb):
 
 
 def append_log_file(message):
-    with open(f"{CONST_WORKSPACE}/log.txt","a") as f:
-        f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {message}\n")
+    path = f"{CONST_WORKSPACE}/log.txt"
+    if not os.path.exists(path):
+        with open(path,"w") as f:
+            f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {message}\n")
+    else:
+        with open(path,"a") as f:
+            f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {message}\n")
+
+
 
