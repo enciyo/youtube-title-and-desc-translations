@@ -1,5 +1,6 @@
 from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP
-from telegram_bot import send_photo_file
+from telegram_bot import send_photo_file, send_message
+
 class GoogleLogin:
     """
     A class representing the Google login functionality.
@@ -30,10 +31,10 @@ class GoogleLogin:
         sb.type(self.input_password,CONST_PASSWORD)
         sb.click(self.button_next)
         if CONST_IS_ENABLE_OTP:
-            sb.click(self.otp_input)
+            sb.click_if_visible(self.otp_input)
+            send_message("Please enter the OTP to continue.")
+            sb.wait(5)
             sb.save_screenshot("otp_verification.png")
             send_photo_file("otp_verification.png")
-
-
 
 
