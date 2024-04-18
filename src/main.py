@@ -26,16 +26,16 @@ def main():
     Note: This script assumes that the necessary use case classes and constants are imported correctly.
     """
 
-    chromium_arg = [
+    chromium_args = ",".join([
         "--disable-extensions",
         "--disable-gpu",
         "--no-sandbox",
         "--disable-dev-shm-usage",
         "--disable-infobars",
         "--headless"
-    ].join(",")
+    ])
 
-    with SB(uc=True,headless2=True,chromium_arg=chromium_arg) as sb:
+    with SB(uc=True, headless2=True, chromium_arg=chromium_args) as sb:
         # Open the YouTube Studio URL
         sb.open(CONST_YOUTUBE_STUDIO_URL)
         # Perform Google login
