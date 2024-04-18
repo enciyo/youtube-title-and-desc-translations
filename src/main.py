@@ -67,9 +67,9 @@ def main():
 
             sb.wait(5)
         except Exception as e:
-            with open("output/error.log", "w") as f:
+            with open("error.log", "w") as f:
                 f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {str(e)}\n")
-            sb.save_screenshot("output/error.png")
+            sb.save_screenshot("error.png")
             sb.quit()
 
 
