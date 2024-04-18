@@ -10,11 +10,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        YT_IS_ENABLE_OTP: ${{ secrets.YT_IS_ENABLE_OTP }}
-        YT_GOOGLE_EMAIL: ${{ secrets.YT_GOOGLE_EMAIL }}
-        YT_GOOGLE_PASSWORD: ${{ secrets.YT_GOOGLE_PASSWORD }}
-        YT_WORKSPACE: ${{ github.path }}/output
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YT_IS_ENABLE_OTP: ${{ secrets.YT_IS_ENABLE_OTP }}
+      YT_GOOGLE_EMAIL: ${{ secrets.YT_GOOGLE_EMAIL }}
+      YT_GOOGLE_PASSWORD: ${{ secrets.YT_GOOGLE_PASSWORD }}
+    permissions: write-all
     steps:
         - name: Checkout Code
           uses: actions/checkout@v4
