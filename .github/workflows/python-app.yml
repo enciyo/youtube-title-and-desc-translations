@@ -14,6 +14,9 @@ jobs:
       YT_IS_ENABLE_OTP: ${{ secrets.YT_IS_ENABLE_OTP }}
       YT_GOOGLE_EMAIL: ${{ secrets.YT_GOOGLE_EMAIL }}
       YT_GOOGLE_PASSWORD: ${{ secrets.YT_GOOGLE_PASSWORD }}
+      YT_TELEGRAM_BOT_TOKEN : ${{ secrets.YT_TELEGRAM_BOT_TOKEN }}
+      YT_TELEGRAM_CHAT_ID : ${{ secrets.YT_TELEGRAM_CHAT_ID }}
+
     permissions: write-all
     steps:
         - name: Checkout Code
