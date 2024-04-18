@@ -33,7 +33,7 @@ def main():
         "--disable-dev-shm-usage",
         "--disable-infobars",
         "--headless"
-    ]
+    ].join(",")
 
     with SB(uc=True,headless2=True,chromium_arg=chromium_arg) as sb:
         # Open the YouTube Studio URL
