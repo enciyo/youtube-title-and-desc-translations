@@ -66,4 +66,7 @@ def main():
         sb.wait(5)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
