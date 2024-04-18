@@ -8,6 +8,7 @@ from use_cases.click_add_translation import ClickAddTranslations
 from use_cases.add_languages import AddLanguage
 from use_cases.navigate_title_and_desc import NavigateTitleAndDescription
 from use_cases.translate_title_and_desc import TranslateTitleAndDesc
+from logger import append_log_file
 
 def main():
     """
@@ -69,4 +70,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        append_log_file(f"An error occurred: {str(e)}"
+

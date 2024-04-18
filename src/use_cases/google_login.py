@@ -1,6 +1,5 @@
 from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP,CONST_WORKSPACE
-import os
-import time
+from logger import take_screen_shot
 
 class GoogleLogin:
     """
@@ -40,8 +39,3 @@ class GoogleLogin:
 
 
 
-count = 0
-def take_screen_shot(sb):
-    count += 1
-    sb.driver.save_screenshot(f"screenshot{count}.png",full_page=True)
-    os.system(f"mv screenshot.png {CONST_WORKSPACE}")
