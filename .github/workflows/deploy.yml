@@ -1,29 +1,29 @@
 name: Daily Deployment
-
-on:
-    schedule:
-        - cron: '0 18 * * *'
 run-name: Deploy
+on:
+  schedule:
+    - cron: '0 18 * * *'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        YT_IS_ENABLE_OTP: ${{ secrets.YT_IS_ENABLE_OTP }}
-        YT_GOOGLE_EMAIL: ${{ secrets.YT_GOOGLE_EMAIL }}
-        YT_GOOGLE_PASSWORD: ${{ secrets.YT_GOOGLE_PASSWORD }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YT_IS_ENABLE_OTP: ${{ secrets.YT_IS_ENABLE_OTP }}
+      YT_GOOGLE_EMAIL: ${{ secrets.YT_GOOGLE_EMAIL }}
+      YT_GOOGLE_PASSWORD: ${{ secrets.YT_GOOGLE_PASSWORD }}
     steps:
-        - name:
-          uses: actions/checkout@v2
-        - name: Set up Python
-          uses: actions/setup-python@v2
-          with:
-            python-version: '3.11'
-        - name: Install dependencies
-          run: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-        - name: Run deployment script
-          run: python main.py
+      - name:
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run deployment script
+        run: python main.py
 
 
