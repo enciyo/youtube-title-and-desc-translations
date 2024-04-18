@@ -1,4 +1,4 @@
-from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP,CONST_WORKSPACE
+from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP
 from logger import take_screen_shot
 
 class GoogleLogin:
