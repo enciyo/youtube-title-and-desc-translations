@@ -1,4 +1,4 @@
-from constants import CONST_EMAIL
+from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP
 
 class GoogleLogin:
     """
@@ -13,6 +13,8 @@ class GoogleLogin:
     """
     input_email = "input[type=email]"
     button_next = "button[type=button] > span:contains(Next)"
+    input_password = "input[type=password]"
+    otp_input = "span:contains('Tap Yes on your phone or tablet')"
 
     def invoke(self, sb):
         """
@@ -20,7 +22,16 @@ class GoogleLogin:
 
         Args:
             sb: An instance of the SeleniumBase class.
+
         """
         sb.wait_for_element_visible(self.input_email)
         sb.type(self.input_email, CONST_EMAIL)
         sb.click(self.button_next)
+        sb.type(self.input_password,CONST_PASSWORD)
+        sb.click(self.button_next)
+        if CONST_IS_ENABLE_OTP:
+            sb.click(self.otp_input)
+
+
+
+
