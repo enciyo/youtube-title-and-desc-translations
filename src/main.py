@@ -70,5 +70,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        append_log_file(f"An error occurred: {str(e)}"
+        append_log_file(f"An error occurred: {str(e)}")
 
