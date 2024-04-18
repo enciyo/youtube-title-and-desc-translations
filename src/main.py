@@ -70,8 +70,6 @@ def main():
             with open("error.log", "w") as f:
                 f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {str(e)}\n")
             sb.save_screenshot("error.png")
-            sb.quit()
-
 
 
 if __name__ == "__main__":
