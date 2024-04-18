@@ -1,4 +1,4 @@
-from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP
+from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP,CONST_WORKSPACE
 
 class GoogleLogin:
     """
@@ -24,11 +24,13 @@ class GoogleLogin:
             sb: An instance of the SeleniumBase class.
 
         """
+        sb.driver.save_screenshot(CONST_WORKSPACE + "/screenshot.png")
         sb.wait_for_element_visible(self.input_email)
         sb.type(self.input_email, CONST_EMAIL)
         sb.click(self.button_next)
-        sb.save_screenshot("screenshot.png")
+        sb.driver.save_screenshot(CONST_WORKSPACE + "/screenshot.png")
         sb.type(self.input_password,CONST_PASSWORD)
+        sb.driver.save_screenshot(CONST_WORKSPACE + "/screenshot.png")
         sb.click(self.button_next)
         if CONST_IS_ENABLE_OTP:
             sb.click(self.otp_input)
