@@ -1,6 +1,4 @@
 from constants import CONST_EMAIL,CONST_PASSWORD,CONST_IS_ENABLE_OTP
-from logger import take_screen_shot
-
 class GoogleLogin:
     """
     A class representing the Google login functionality.
@@ -25,13 +23,10 @@ class GoogleLogin:
             sb: An instance of the SeleniumBase class.
 
         """
-        take_screen_shot(sb)
         sb.wait_for_element_visible(self.input_email)
-        take_screen_shot(sb)
+        sb.type(self.input_email,CONST_EMAIL)
         sb.click(self.button_next)
-        take_screen_shot(sb)
         sb.type(self.input_password,CONST_PASSWORD)
-        take_screen_shot(sb)
         sb.click(self.button_next)
         if CONST_IS_ENABLE_OTP:
             sb.click(self.otp_input)
