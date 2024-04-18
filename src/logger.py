@@ -7,7 +7,7 @@ def take_screen_shot(sb):
     global count
     count += 1
     sb.driver.save_screenshot(f"screenshot{count}.png")
-    os.system(f"mv screenshot.png {CONST_WORKSPACE}")
+    os.system(f"mv screenshot{count}.png {CONST_WORKSPACE}")
 
 
 def append_log_file(message):
