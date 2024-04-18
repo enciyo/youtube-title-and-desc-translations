@@ -27,6 +27,7 @@ class GoogleLogin:
         sb.wait_for_element_visible(self.input_email)
         sb.type(self.input_email, CONST_EMAIL)
         sb.click(self.button_next)
+        sb.save_screenshot("screenshot.png")
         sb.type(self.input_password,CONST_PASSWORD)
         sb.click(self.button_next)
         if CONST_IS_ENABLE_OTP:
