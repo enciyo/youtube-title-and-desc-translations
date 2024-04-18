@@ -33,3 +33,4 @@ jobs:
           with:
             name: yt-artifact
             path: ${{ github.workspace }}/output
+            if-no-files-found: error
