@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 
 class NavigateTitleAndDescription:
     """
@@ -30,7 +31,8 @@ class NavigateTitleAndDescription:
 
     def invoke(self,sb,language):
         row = self.__create_row_path(language)
+        actions = ActionChains(sb.driver)
         parent = sb.execute_script(row)
-        parent.find_element(By.CSS_SELECTOR,self.hover_path).click()
+        actions.move_to_element(parent.find_element(By.CSS_SELECTOR,self.hover_path)).perform()
         parent.find_element(By.CSS_SELECTOR,self.add_button).click()
 

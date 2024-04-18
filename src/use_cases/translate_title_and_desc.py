@@ -1,6 +1,5 @@
 from translate import translate_youtube_title_and_desc
 from countries import get_country_code
-from selenium.webdriver.common.keys import Keys
 
 
 class TranslateTitleAndDesc:
