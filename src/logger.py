@@ -6,7 +6,7 @@ count = 0
 def take_screen_shot(sb):
     global count
     count += 1
-    sb.driver.save_screenshot(f"screenshot{count}.png")
+    sb.save_screenshot(f"screenshot{count}.png")
     os.system(f"mv screenshot{count}.png {CONST_WORKSPACE}")
 
 
