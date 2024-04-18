@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 class NavigateToVideoDetail:
     """
     A class that represents the use case of navigating to a video detail page.
@@ -6,6 +8,8 @@ class NavigateToVideoDetail:
         __create_cell_xpath: Creates the XPath for a video cell based on the index.
         invoke: Invokes the use case by clicking on a video cell.
     """
+
+    languages_count = "#languages-count"
 
     def __create_cell_xpath(self, index):
         """
@@ -28,5 +32,7 @@ class NavigateToVideoDetail:
             index (int): The index of the video cell.
         """
         path = self.__create_cell_xpath(index + 1)
-        sb.wait_for_element_visible(path)
-        sb.click(path)
+        count = path.find_element(By.CSS_SELECTOR, self.languages_count).text()
+        if count != "233":
+            sb.wait_for_element_visible(path)
+            sb.click(path)

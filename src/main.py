@@ -9,6 +9,7 @@ from use_cases.add_languages import AddLanguage
 from use_cases.navigate_title_and_desc import NavigateTitleAndDescription
 from use_cases.translate_title_and_desc import TranslateTitleAndDesc
 import time
+from telegram_bot import send_message,send_photo_file
 
 def main():
     """
@@ -63,6 +64,7 @@ def main():
                         print(f"No more languages to add for this video ({index}). Moving to the next video.")
                         break
                 print(f"Completed adding translations for video {index}")
+                send_message(f"Completed adding translations for video {index}")
                 sb.go_back()
 
             sb.wait(5)
@@ -70,6 +72,9 @@ def main():
             with open("error.log", "w") as f:
                 f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {str(e)}\n")
             sb.save_screenshot("error.png")
+            send_photo_file("error.png")
+            send_message(f"An error occurred: {str(e)}")
+
 
 
 if __name__ == "__main__":
