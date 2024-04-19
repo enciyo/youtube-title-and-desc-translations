@@ -128,3 +128,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+error.png
+error.log
+otp_verification.png

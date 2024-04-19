@@ -23,6 +23,20 @@ class NavigateToVideoDetail:
         """
         return f"#table-content > ytgn-video-row:nth-child({index}) > #row-container > div.tablecell-video.floating-column.last-floating-column.cell-body.style-scope.ytgn-video-row.style-scope.ytgn-video-row > ytcp-video-list-cell-video > #video-thumbnail > #thumbnail-anchor"
 
+    def __create_count_cell_xpath(self, index):
+        """
+        Creates the XPath for a video cell based on the index.
+
+        Args:
+            index (int): The index of the video cell.
+
+        Returns:
+            str: The XPath for the video cell.
+        """
+        return f"#table-content > ytgn-video-row:nth-child({index}) > #row-container > div.tablecell-languages.cell-body.style-scope.ytgn-video-row.style-scope.ytgn-video-row > #languages-count"
+
+
+
     def invoke(self, sb, index):
         """
         Invokes the use case by clicking on a video cell.
@@ -32,7 +46,7 @@ class NavigateToVideoDetail:
             index (int): The index of the video cell.
         """
         path = self.__create_cell_xpath(index + 1)
-        count = path.find_element(By.CSS_SELECTOR, self.languages_count).text()
+        count = sb.get_text(self.__create_count_cell_xpath(index + 1))
         if count != "233":
             sb.wait_for_element_visible(path)
             sb.click(path)
