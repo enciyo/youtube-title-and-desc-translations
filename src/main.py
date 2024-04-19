@@ -37,7 +37,7 @@ def main():
         "--headless"
     ])
 
-    with SB(uc=True,) as sb:
+    with SB(uc=True,chromium_arg=chromium_args) as sb:
         try:
             # Open the YouTube Studio URL
             sb.open(CONST_YOUTUBE_STUDIO_URL)
