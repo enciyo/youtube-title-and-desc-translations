@@ -25,6 +25,7 @@ class GoogleLogin:
             sb: An instance of the SeleniumBase class.
 
         """
+
         sb.wait_for_element_visible(self.input_email)
         sb.type(self.input_email,CONST_EMAIL)
         sb.click(self.button_next)

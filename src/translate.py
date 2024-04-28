@@ -26,3 +26,5 @@ def translate_youtube_title_and_desc(video):
         "title": truncate(translated_title,100),
         "description": truncate(translated_description,5000)
     }
+
+

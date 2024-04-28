@@ -29,23 +29,24 @@ def main():
 
     Note: This script assumes that the necessary use case classes and constants are imported correctly.
     """
-
     chromium_args = ",".join([
         "--disable-extensions",
         "--disable-gpu",
         "--no-sandbox",
         "--disable-dev-shm-usage",
         "--headless",
-        "user-data"
     ])
-    with SB(uc=True) as sb:
+
+    with SB(uc=True,headless2=True,chromium_arg=chromium_args) as sb:
         load_cookies(sb.driver)
         sb.refresh()
         try:
             # Open the YouTube Studio URL
             sb.open(CONST_YOUTUBE_STUDIO_URL)
-            # Perform Google login
-            GoogleLogin().invoke(sb)
+
+            if "accounts.google.com" in sb.get_current_url():
+                # Perform Google login
+                GoogleLogin().invoke(sb)
             # Navigate to the subtitle section
             NavigateToSubtitle().invoke(sb)
             # Get the list of videos
