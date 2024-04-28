@@ -1,5 +1,6 @@
 from seleniumbase import SB
 from constants import *
+from cookies import load_cookies, save_cookies
 from use_cases.google_login import GoogleLogin
 from use_cases.navigate_subtitle import NavigateToSubtitle
 from use_cases.get_videos import GetVideos
@@ -10,6 +11,7 @@ from use_cases.navigate_title_and_desc import NavigateTitleAndDescription
 from use_cases.translate_title_and_desc import TranslateTitleAndDesc
 import time
 from telegram_bot import send_message,send_photo_file
+
 
 def main():
     """
@@ -33,10 +35,12 @@ def main():
         "--disable-gpu",
         "--no-sandbox",
         "--disable-dev-shm-usage",
-        "--headless"
+        "--headless",
+        "user-data"
     ])
-
-    with SB(uc=True,headless2=True) as sb:
+    with SB(uc=True) as sb:
+        load_cookies(sb.driver)
+        sb.refresh()
         try:
             # Open the YouTube Studio URL
             sb.open(CONST_YOUTUBE_STUDIO_URL)
@@ -66,8 +70,10 @@ def main():
                 send_message(f"Completed adding translations for video {index}")
                 sb.go_back()
 
+            save_cookies(sb.driver)
             sb.wait(5)
         except Exception as e:
+            save_cookies(sb.driver)
             with open("error.log", "w") as f:
                 f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {str(e)}\n")
             sb.save_screenshot("error.png")
