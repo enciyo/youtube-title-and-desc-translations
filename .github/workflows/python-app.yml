@@ -21,6 +21,12 @@ jobs:
     steps:
         - name: Checkout Code
           uses: actions/checkout@v4
+        - name: Restore cache
+          uses: actions/cache/restore@v4
+          key: cookies-key
+          with:
+            path: |
+               saved_cookies/
         - name: Set up Python
           uses: actions/setup-python@v5
           with:
@@ -39,3 +45,9 @@ jobs:
               error.log
               error.png
             if-no-files-found: error
+        - name: Save caches
+          uses: actions/cache/save@v4
+          key: cookies-key
+          with:
+            path: |
+              saved_cookies/
